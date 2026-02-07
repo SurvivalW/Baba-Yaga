@@ -7,4 +7,18 @@ import { SearchComponent } from './pages/search/search.component';
   imports: [SearchComponent],
   templateUrl: './app.component.html'
 })
-export class AppComponent {}
+export class AppComponent {
+  isDark = false;
+
+  toggleDark()
+  {
+    this.isDark = !this.isDark;
+
+    if(this.isDark == true)
+    {
+      
+    }
+  }
+}
+
+
