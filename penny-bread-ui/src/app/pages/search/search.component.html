@@ -1,9 +1,21 @@
-<input
-  [(ngModel)]="searchQuery"
-  placeholder="Search for item"
-/>
+<div class="search-bar">
+  <!-- Item search -->
+  <input
+    [(ngModel)]="searchQuery"
+    placeholder="Search for item"
+  />
 
-<button (click)="onSearch()">Search</button>
+  <button (click)="onSearch()">Search</button>
+
+  <!-- Location (locked) -->
+  <input
+    [(ngModel)]="location"
+    readonly
+    class="locked"
+  />
+
+  <button disabled>Location</button>
+</div>
 
 <div class="results">
   <div *ngFor="let product of products" class="product-card">
