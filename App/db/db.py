@@ -6,7 +6,7 @@ conn = mysql.connector.connect(
     host = "localhost",
     port = 3307,
     user = "root",
-    password = "your password",
+    password = "ishaSalvatore@1974",
     database = "groceryApp"
 )
 
