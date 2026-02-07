@@ -15,7 +15,7 @@
       <button (click)="onSearch()">Search</button>
     </div>
 
-    <div class ="results">
+    <!-- <div class ="results">
       <div class="card product-card" *ngFor="let product of filteredProducts()">
         <img [src]="product.imageUrl" [alt]="product.name" />
         <div class="product-info">
@@ -25,7 +25,15 @@
           <p class="store">{{ product.store }}</p>
         </div>
       </div>
-    </div>
+    </div> -->
+    <div class="results">
+      <div *ngFor="let product of products" class="product-card">
+        <h3>{{ product.item }}</h3>
+        <p>{{ product.store }}</p>
+        <p>${{ product.price }}</p>
+        <p>Stock: {{ product.stock }}</p>
+      </div>
+</div>
   </div>
 </div>
 
