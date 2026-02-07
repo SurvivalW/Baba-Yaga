@@ -51,14 +51,8 @@ def search_lowest():
         if query in p["item"].lower()
     ]
     
-    
-    sorted_products = sorted(results, key=lambda x: x["price"])
+    sorted_products = sorted(results, key=lambda x: (x["price"], -x["stock"]))
     return jsonify(sorted_products)
-    # lowest = results[0]["price"]
-    # for r in results:
-    #     if r["price"] < lowest:
-    #         lowest = r
-    # return jsonify(lowest)
 
 if __name__ == "__main__":
     app.run(debug=True)

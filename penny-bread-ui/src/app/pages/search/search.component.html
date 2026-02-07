@@ -5,11 +5,31 @@
 
 <button (click)="onSearch()">Search</button>
 
-<div class="results">
+<div *ngIf="products.length > 0">
+  <h3>Results</h3>
+
+  <ul>
+    <li *ngFor="let product of products">
+      <strong>{{ product.item }}</strong>  
+      <br />
+      Store: {{ product.store }}  
+      <br />
+      Price: ${{ product.price }}  
+      <br />
+      Stock: {{ product.stock }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="products.length === 0">
+  <p>No results found.</p>
+</div>
+
+<!-- <div class="results">
   <div *ngFor="let product of products" class="product-card">
     <h3>{{ product.item }}</h3>
     <p>{{ product.store }}</p>
     <p>${{ product.price }}</p>
     <p>Stock: {{ product.stock }}</p>
   </div>
-</div>
+</div> -->

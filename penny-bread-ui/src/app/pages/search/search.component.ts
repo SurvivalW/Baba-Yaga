@@ -19,8 +19,9 @@ export class SearchComponent {
   constructor(private priceService: PriceService) {}
 
  onSearch() {
-    this.priceService
-      .searchProducts(this.searchQuery)
-      .subscribe(data => this.products = data);
-  }
+  this.priceService.searchProducts(this.searchQuery).subscribe(data => {
+    console.log('API response:', data);
+    this.products = data;
+  });
+}
 }
