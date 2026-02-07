@@ -31,3 +31,38 @@ for store_id, filename in store_files.items():
     )
 
 conn.commit()
+
+#creating products and inventory
+product_cache = {}
+
+for store_id, filename in store_files.items():
+    path = os.path.join(DATA_FOLDER, filename)
+    df = pd.read_csv(path)
+
+    df.columns = [c.strip().lower() for c in df.columns]
+
+    for _, row in df.iterrows():
+        product_id = int(row["id"])
+        product_name = str(row["name"])
+        price = float(row["price"])
+        stock = int(row["stock"])
+        in_stock = stock > 0
+        
+        if product_id not in product_cache:
+            cursor.execute(
+                "INSERT IGNORE INTO products (product_id, product_name) VALUES (%s, %s)",
+                (product_id, product_name)
+            )
+            product_cache[product_id] = True
+            
+            cursor.execute("""
+            INSERT INTO inventory
+            (store_id, product_id, price, stock, in_stock)
+            VALUES (%s, %s, %s, %s, %s)
+        """, (store_id, product_id, price, stock, in_stock))
+
+conn.commit()
+
+cursor.close()
+conn.close()
+print("Seeding complete.")
