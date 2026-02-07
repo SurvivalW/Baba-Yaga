@@ -18,9 +18,9 @@ export class SearchComponent {
 
   constructor(private priceService: PriceService) {}
 
-  search() {
-    if (!this.searchQuery) return;
-    this.priceService.getPrices(this.searchQuery, this.location)
+ onSearch() {
+    this.priceService
+      .searchProducts(this.searchQuery)
       .subscribe(data => this.products = data);
   }
 }

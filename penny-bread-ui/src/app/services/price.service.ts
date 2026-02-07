@@ -11,9 +11,9 @@ export class PriceService {
 
     constructor(private http: HttpClient) {}
 
-    getPrices(item: string, location: string): Observable<any> {
-        return this.http.get(`${this.apiUrl}/search`, {
-            params: { item, location }
-        });
+    searchProducts(query: string): Observable<any[]> {
+        return this.http.get<any[]>(
+            `${this.apiUrl}/search?q=${query}`
+        );
     }
 }

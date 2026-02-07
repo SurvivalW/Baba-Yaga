@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { SearchComponent } from "./pages/search/search.component";
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './pages/search/search.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  imports: [SearchComponent, FormsModule, SearchComponent]
+  imports: [SearchComponent],
+  templateUrl: './app.component.html'
 })
 export class AppComponent {}
