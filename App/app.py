@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from collections import OrderedDict
 
 app = Flask(__name__)
 CORS(app)
@@ -38,6 +39,26 @@ def search():
     ]
 
     return jsonify(results)
+
+# TODO: make methods that show results based on proximity to location and price
+
+@app.route("/api/search_lowest")
+def search_lowest():
+    query = request.args.get("q", "").lower()
+    
+    results = [
+        p for p in MOCK_PRODUCTS
+        if query in p["item"].lower()
+    ]
+    
+    
+    sorted_products = sorted(results, key=lambda x: x["price"])
+    return jsonify(sorted_products)
+    # lowest = results[0]["price"]
+    # for r in results:
+    #     if r["price"] < lowest:
+    #         lowest = r
+    # return jsonify(lowest)
 
 if __name__ == "__main__":
     app.run(debug=True)
