@@ -16,6 +16,6 @@
   ![giphy](https://github.com/user-attachments/assets/c6aebcc6-2cb0-47a2-aa88-2a7dd0de7cee)
 
   ## TO RUN!
-  ### We have the `mock_data` branch containerized so you can now run it yourself!
-  ### After cloning the repository (on the `mock_data` branch) you can run `npm install` and then `docker compose up --build`
-  ### Have fun viewing!!
+  We have the `mock_data` branch containerized so you can now run it yourself!
+  After cloning the repository (on the `mock_data` branch) you can run `npm install` and then `docker compose up --build`
+  Have fun viewing!!
