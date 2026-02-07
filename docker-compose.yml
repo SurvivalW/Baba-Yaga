@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./App
+    container_name: penny-bread-backend
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build: ./penny-bread-ui
+    container_name: penny-bread-frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
